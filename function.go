@@ -29,6 +29,10 @@ func test() func(float64) float64 {
     }
 }
 
+func variadic(num int, nums ...int)  {
+    fmt.Println(num, nums)
+}
+
 func main()  {
     fmt.Println(add(23, 2))
 
@@ -45,4 +49,6 @@ func main()  {
 
     t1 := test()
     fmt.Println(t1(12))
+
+    variadic(12, 32, 65, 56, 7, 89)
 }
