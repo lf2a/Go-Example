@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-func test()  {
-    defer fmt.Println("World")
+func test() {
+	defer fmt.Println("World")
 
-    fmt.Println("Hello")
+	fmt.Println("Hello")
 }
 
-func main()  {
-    test()
+// func main() {
+// 	test()
 
-    for i := 0; i < 5; i++ {
-		defer fmt.Println(i)
-	}
-}
+// 	for i := 0; i < 5; i++ {
+// 		defer fmt.Println(i)
+// 	}
+// }

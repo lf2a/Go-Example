@@ -1,23 +1,29 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"os"
-    "fmt"
-    "time"
+	"strings"
+	"time"
 )
 
 func createEmptyFile() {
-    emptyFile, err := os.Create("file1.txt")
+	emptyFile, err := os.Create("file1.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// emptyFile.Write([]byte("luiz Filipy")) // para escrever algo no arquivo
 	log.Println(emptyFile)
 	emptyFile.Close()
 }
 
 func createDir() {
-    _, err := os.Stat("test")
+	_, err := os.Stat("test")
 
 	if os.IsNotExist(err) {
 		errDir := os.MkdirAll("new_dir", 0755)
@@ -29,7 +35,7 @@ func createDir() {
 }
 
 func renameFile() {
-    oldName := "file1.txt"
+	oldName := "file1.txt"
 	newName := "testing.txt"
 	err := os.Rename(oldName, newName)
 	if err != nil {
@@ -38,7 +44,7 @@ func renameFile() {
 }
 
 func moveFile() {
-    oldLocation := "/var/www/html/test.txt"
+	oldLocation := "/var/www/html/test.txt"
 	newLocation := "/var/www/html/src/test.txt"
 	err := os.Rename(oldLocation, newLocation)
 	if err != nil {
@@ -47,7 +53,7 @@ func moveFile() {
 }
 
 func copyFile() {
-    sourceFile, err := os.Open("/var/www/html/src/test.txt")
+	sourceFile, err := os.Open("/var/www/html/src/test.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -68,7 +74,7 @@ func copyFile() {
 }
 
 func getFileInfo() {
-    fileStat, err := os.Stat("test.txt")
+	fileStat, err := os.Stat("test.txt")
 
 	if err != nil {
 		log.Fatal(err)
@@ -82,14 +88,14 @@ func getFileInfo() {
 }
 
 func deleteFile() {
-    err := os.Remove("/var/www/html/test.txt")
+	err := os.Remove("/var/www/html/test.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
 func readChar() {
-    filename := "test.txt"
+	filename := "test.txt"
 
 	filebuffer, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -106,7 +112,7 @@ func readChar() {
 }
 
 func appendFile() {
-    message := "Add this content at end"
+	message := "Add this content at end"
 	filename := "test.txt"
 
 	f, err := os.OpenFile(filename, os.O_RDWR|os.O_APPEND|os.O_CREATE, 0660)
@@ -122,7 +128,7 @@ func appendFile() {
 
 // Changing permissions, ownership, and timestamps
 func change() {
-    // Test File existence.
+	// Test File existence.
 	_, err := os.Stat("test.txt")
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -154,14 +160,14 @@ func change() {
 }
 
 func main() {
-    // createEmptyFile()
-    // createDir()
-    // renameFile()
-    // moveFile()
-    // copyFile()
-    // getFileInfo()
-    // deleteFile()
-    // readChar()
-    // appendFile()
-    // change()
+	createEmptyFile()
+	// createDir()
+	// renameFile()
+	// moveFile()
+	// copyFile()
+	// getFileInfo()
+	// deleteFile()
+	// readChar()
+	// appendFile()
+	// change()
 }
