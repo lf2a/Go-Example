@@ -11,9 +11,26 @@ type bird struct {
 }
 
 func main() {
-	birdJSON := `[{"species":"pigeon","decription":"likes to perch on rocks"},{"species":"eagle","description":"bird of prey"}]`
+	birdJSON := `[
+		{
+			"Species":"eagle",
+			"Description":"bird of prey"
+		},
+		{
+			"Species":"dog",
+			"Description":"a dog"
+		}
+	]`
 
 	var bird []bird
-	json.Unmarshal([]byte(birdJSON), &bird)
-	fmt.Printf("%+v\n", bird)
+	birdB := []byte(birdJSON)
+	json.Unmarshal(birdB, &bird)
+	// fmt.Printf("%+v\n", bird)
+
+	b, err := json.Marshal(bird)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(b))
 }

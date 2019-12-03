@@ -77,4 +77,6 @@ func main() {
 
 	usr, _ := user.Current()
 	fmt.Println(usr.Gid, usr.HomeDir, usr.Name, usr.Username, usr.Uid)
+
+	fmt.Println(os.Args)
 }
