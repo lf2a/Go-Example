@@ -10,7 +10,7 @@ type bird struct {
 	Description string
 }
 
-func main() {
+func JSONTest() {
 	birdJSON := `[
 		{
 			"Species":"eagle",

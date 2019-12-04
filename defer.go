@@ -17,7 +17,7 @@ func test() {
 	fmt.Println("Hello")
 }
 
-func main() {
+func DeferTest() {
 	test()
 
 	for i := 0; i < 5; i++ {

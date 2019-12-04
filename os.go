@@ -62,13 +62,13 @@ func start() {
 	log.Printf("Command finished with error: %v", err)
 }
 
-func main() {
-	// chmod()
-	// env()
-	// command()
-	// output()
-	// run()
-	// start()
+func OSTest() {
+	chmod()
+	env()
+	command()
+	output()
+	run()
+	start()
 
 	fmt.Println(os.Getwd())
 	fmt.Println(os.Getpid())

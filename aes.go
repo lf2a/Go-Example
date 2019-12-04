@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 )
 
-func crypt() {
+func Crypt() {
 	text := []byte("My Super Secret Code Stuff")
 	key := []byte("passphrasewhichneedstobe32bytes!")
 
@@ -61,7 +61,7 @@ func crypt() {
 	fmt.Println(b)
 }
 
-func decrypt() {
+func Decrypt() {
 	key := []byte("passphrasewhichneedstobe32bytes!")
 	ciphertext, err := ioutil.ReadFile("my.data")
 	if err != nil {
@@ -89,9 +89,4 @@ func decrypt() {
 		fmt.Println(err)
 	}
 	fmt.Println(string(plaintext))
-}
-
-func main() {
-	crypt()
-	// decrypt()
 }

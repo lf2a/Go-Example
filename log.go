@@ -32,7 +32,7 @@ func log2() {
 	fmt.Print(&buf)
 }
 
-func main() {
+func Log1() {
 	log1()
 	log2()
 }

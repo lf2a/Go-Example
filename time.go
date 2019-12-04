@@ -14,7 +14,7 @@ func duration() {
 	fmt.Println(d.Milliseconds())
 }
 
-func main() {
+func TimeTest() {
 	duration()
 
 	t := time.Now()

@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func SHATest() {
 	// sha 256
 	sum := sha256.Sum256([]byte("hello world\n"))
 	fmt.Printf("%x\n", sum)

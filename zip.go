@@ -121,10 +121,10 @@ func descomprimir() {
 	}
 }
 
-func main() {
+func ZipTest() {
 	fmt.Println("Teste")
 
-	// write()
-	// read()
-	// descomprimir()
+	write()
+	read()
+	descomprimir()
 }

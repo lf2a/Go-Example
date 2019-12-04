@@ -28,8 +28,8 @@ func clear() {
 	}
 }
 
-func main() {
-	// base()
+func PathTest() {
+	base()
 	clear()
 
 	fmt.Println(path.Ext("/a/b/c/bar.css"))

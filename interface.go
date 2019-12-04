@@ -1,6 +1,6 @@
 package main
 
-// import "fmt"
+import "fmt"
 
 type iPerson interface {
 	getInfo()
@@ -11,16 +11,16 @@ type person1 struct {
 	age  uint8
 }
 
-// func main() {
-// 	// var ip iPerson
-// 	// p1 := person1{"luiz", 19}
-// 	//
-// 	// ip = &p1
-// 	// ip.getInfo()
-// 	var p1 iPerson = person1{"luiz", 19}
-// 	p1.getInfo()
-// }
+func Interface() {
+	var ip iPerson
+	p1 := person1{"luiz", 19}
 
-// func (p person1) getInfo() {
-// 	fmt.Println(p.name, p.age)
-// }
+	ip = &p1
+	ip.getInfo()
+	var p2 iPerson = person1{"luiz", 19}
+	p2.getInfo()
+}
+
+func (p person1) getInfo() {
+	fmt.Println(p.name, p.age)
+}

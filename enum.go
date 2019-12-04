@@ -14,6 +14,6 @@ const (
 	sabado
 )
 
-func main() {
+func EnumTest() {
 	fmt.Println(domingo)
 }

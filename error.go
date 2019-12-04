@@ -13,7 +13,7 @@ func add(v1, v2 int32) (int32, error) {
 	return v1 + v2, nil
 }
 
-func main() {
+func ErrorTest() {
 	res1, err1 := add(12, 2)
 	if err1 != nil {
 		log.Panicln(err1)

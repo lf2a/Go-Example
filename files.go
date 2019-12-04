@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func createEmptyFile() {
+func CreateEmptyFile() {
 	emptyFile, err := os.Create("file1.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -22,7 +22,7 @@ func createEmptyFile() {
 	emptyFile.Close()
 }
 
-func createDir() {
+func CreateDir() {
 	_, err := os.Stat("test")
 
 	if os.IsNotExist(err) {
@@ -34,7 +34,7 @@ func createDir() {
 	}
 }
 
-func renameFile() {
+func RenameFile() {
 	oldName := "file1.txt"
 	newName := "testing.txt"
 	err := os.Rename(oldName, newName)
@@ -43,7 +43,7 @@ func renameFile() {
 	}
 }
 
-func moveFile() {
+func MoveFile() {
 	oldLocation := "/var/www/html/test.txt"
 	newLocation := "/var/www/html/src/test.txt"
 	err := os.Rename(oldLocation, newLocation)
@@ -52,7 +52,7 @@ func moveFile() {
 	}
 }
 
-func copyFile() {
+func CopyFile() {
 	sourceFile, err := os.Open("/var/www/html/src/test.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -73,7 +73,7 @@ func copyFile() {
 	log.Printf("Copied %d bytes.", bytesCopied)
 }
 
-func getFileInfo() {
+func GetFileInfo() {
 	fileStat, err := os.Stat("test.txt")
 
 	if err != nil {
@@ -87,14 +87,14 @@ func getFileInfo() {
 	fmt.Println("Is Directory: ", fileStat.IsDir())   // Abbreviation for Mode().IsDir()
 }
 
-func deleteFile() {
+func DeleteFile() {
 	err := os.Remove("/var/www/html/test.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func readChar() {
+func ReadChar() {
 	filename := "test.txt"
 
 	filebuffer, err := ioutil.ReadFile(filename)
@@ -111,7 +111,7 @@ func readChar() {
 	}
 }
 
-func appendFile() {
+func AppendFile() {
 	message := "Add this content at end"
 	filename := "test.txt"
 
@@ -127,7 +127,7 @@ func appendFile() {
 }
 
 // Changing permissions, ownership, and timestamps
-func change() {
+func Change() {
 	// Test File existence.
 	_, err := os.Stat("test.txt")
 	if err != nil {
@@ -157,17 +157,4 @@ func change() {
 	if err != nil {
 		log.Println(err)
 	}
-}
-
-func main() {
-	createEmptyFile()
-	// createDir()
-	// renameFile()
-	// moveFile()
-	// copyFile()
-	// getFileInfo()
-	// deleteFile()
-	// readChar()
-	// appendFile()
-	// change()
 }

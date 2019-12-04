@@ -13,7 +13,7 @@ type Pessoa struct {
 	idade uint8
 }
 
-func main() {
+func SQLiteTest() {
 	database, _ := sql.Open("sqlite3", "./sqlite3.db")
 
 	statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Pessoa (ID INTEGER PRIMARY KEY, nome TEXT, idade INTEGER)")
