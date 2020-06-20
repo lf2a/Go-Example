@@ -8,7 +8,7 @@ import (
 
 func logging(f http.HandlerFunc) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
-        log.Println(r.URL.Path)
+        log.Println(r.URL.Path, r.Method)
         f(w, r)
     }
 }
@@ -21,7 +21,7 @@ func about(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, "about")
 }
 
-func main() {
+func simples() {
     http.HandleFunc("/", logging(home))
     http.HandleFunc("/about", logging(about))
 

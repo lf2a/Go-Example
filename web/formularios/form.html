@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{.Titulo}}</title>
+</head>
+<body>
+<form method="post">
+    <div>
+        <input type="text" name="nome" id="nome" placeholder="Nome" required>
+    </div>
+    <div>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+    </div>
+    <div>
+        <input type="number" name="idade" id="idade" placeholder="Idade" required>
+    </div>
+    <div>
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+<ul>
+    <li>{{.Usuario.Nome}} | {{.Usuario.Email}} | {{.Usuario.Idade}}</li>
+</ul>
+</body>
+</html>
