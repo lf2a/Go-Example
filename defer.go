@@ -18,7 +18,7 @@ func ola() {
 	fmt.Println("Hello")
 }
 
-func main() {
+func def() {
 	ola()
 
 	for i := 0; i < 5; i++ {
