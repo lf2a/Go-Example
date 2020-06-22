@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/*	Aviso
+/*
+	Aviso:
 	Se uma função adiada é avaliada como nula,
 	a execução entra em pânico quando a função
 	circundante termina e não quando a adiação é chamada.
@@ -11,14 +12,14 @@ import "fmt"
 	do que está fazendo.
 */
 
-func test() {
+func ola() {
 	defer fmt.Println("World")
 
 	fmt.Println("Hello")
 }
 
-func DeferTest() {
-	test()
+func main() {
+	ola()
 
 	for i := 0; i < 5; i++ {
 		defer fmt.Println(i)
