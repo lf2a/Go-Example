@@ -2,25 +2,29 @@ package main
 
 import "fmt"
 
-type iPerson interface {
-	getInfo()
+type Carro struct {
+	modelo string
+	marca  string
+	preco  float32
 }
 
-type person1 struct {
-	name string
-	age  uint8
+type ICarro interface {
+	info()
 }
 
-func Interface() {
-	var ip iPerson
-	p1 := person1{"luiz", 19}
-
-	ip = &p1
-	ip.getInfo()
-	var p2 iPerson = person1{"luiz", 19}
-	p2.getInfo()
+func (c Carro) info() {
+	fmt.Printf("%s %s custa %6.2f\n", c.marca, c.modelo, c.preco)
 }
 
-func (p person1) getInfo() {
-	fmt.Println(p.name, p.age)
+func main() {
+	// forma 1
+	var i ICarro
+	c1 := Carro{"Huayra", "Pagani", 1_500_00.00}
+
+	i = &c1
+	i.info()
+
+	// forma 2
+	var c2 ICarro = Carro{"Huracan", "Lamborghini", 250_000.00}
+	c2.info()
 }
