@@ -5,32 +5,45 @@ import (
 	"fmt"
 )
 
-type bird struct {
-	Species     string
-	Description string
+type Notebook struct {
+	Marca  string
+	Modelo string
+	Preco  string
 }
 
-func JSONTest() {
-	birdJSON := `[
+func main() {
+
+	notebooksString := `[
 		{
-			"Species":"eagle",
-			"Description":"bird of prey"
+			"marca":"Acer",
+			"modelo":"Aspire 5",
+			"preco":"1234.90"
 		},
 		{
-			"Species":"dog",
-			"Description":"a dog"
+			"marca":"Acer",
+			"modelo":"Aspire Nitro 5",
+			"preco":"3234.90"
+		},
+		{
+			"marca":"Apple",
+			"modelo":"Macbook air",
+			"preco":"11234.90"
 		}
 	]`
+	var notebooks []Notebook
 
-	var bird []bird
-	birdB := []byte(birdJSON)
-	json.Unmarshal(birdB, &bird)
-	// fmt.Printf("%+v\n", bird)
+	jsonString := []byte(notebooksString)
 
-	b, err := json.Marshal(bird)
+	// convertendo json string em struct
+	json.Unmarshal(jsonString, &notebooks)
+	fmt.Println(notebooks)
+
+	// convertendo struct em json
+	stringJson, err := json.Marshal(notebooks)
 	if err != nil {
 		fmt.Println(err)
 	}
+	fmt.Println(string(stringJson))
 
-	fmt.Println(string(b))
+	fmt.Printf("%+v\n", notebooks)
 }
