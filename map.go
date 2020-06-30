@@ -1,36 +1,54 @@
 package main
 
+/*
+Maps são tipos de dados associativos padrões no Go (às vezes chamados de hashes ou
+dicionários em outras linguagens).
+*/
+
 import "fmt"
 
-type person2 struct {
-	age uint8
+type Aviao struct {
+	Ano int
 }
 
-func MapTest() {
-	var m map[string]person2
+func main() {
+	// criando um map de struct aviao
+	var avioes map[string]Aviao
 
-	m = make(map[string]person2)
-	m["luiz"] = person2{19}
-	m["filipy"] = person2{30}
+	avioes = make(map[string]Aviao)
+	avioes["novo"] = Aviao{1999}
+	avioes["antigo"] = Aviao{2000}
 
-	fmt.Println(m["luiz"])
-	fmt.Println(m)
+	fmt.Println(avioes["novo"])
+	fmt.Println(avioes)
 
-	delete(m, "filipy")
-	fmt.Println(m)
+	// apagando a chave "antigo"
+	delete(avioes, "antigo")
+	fmt.Println(avioes)
 
-	mt, ok := m["filipy"]
-	fmt.Println(mt, ok)
+	// verificando se existe, se existir a variavel "ok" ira retornar true
+	aviao, ok := avioes["antigo"]
+	fmt.Println(aviao, ok)
 
-	var mm = map[string]person2{
-		"luiz":   person2{56},
-		"filipy": person2{78},
+	// ==========
+
+	var avioes2 = map[string]Aviao{
+		"luiz":   {1956},
+		"filipy": {1890},
 	}
-	// or
-	// var mm = map[string]person2{
-	//     "luiz": {56},
-	//     "filipy": {78},
-	// }
 
-	fmt.Println(mm)
+	fmt.Println(avioes2)
+
+	// ==========
+
+	// chave string, valor int
+	nums := make(map[string]int)
+	nums["a"] = 12
+	nums["b"] = 15
+
+	fmt.Println(nums)
+	fmt.Println(nums["b"])
+
+	nums2 := map[string]int{"c": 23, "d": 34}
+	fmt.Println(nums2)
 }
