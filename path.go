@@ -6,13 +6,14 @@ import (
 )
 
 func base() {
-	// retorna o ultimo elemento do caminho
+	// retorna o ultimo elemento do path
 	fmt.Println(path.Base("/b"))
+	fmt.Println(path.Base("/b/a"))
 	fmt.Println(path.Base("/"))
 	fmt.Println(path.Base(""))
 }
 
-func clear() {
+func clean() {
 	paths := []string{
 		"a/c",
 		"a//c",
@@ -23,16 +24,21 @@ func clear() {
 		"",
 	}
 
+	// Clean retorna o nome do caminho mais curto equivalente ao caminho por processamento puramente lexical.
 	for _, p := range paths {
 		fmt.Printf("Clean(%q) = %q\n", p, path.Clean(p))
 	}
 }
 
-func PathTest() {
+func main() {
+	clean()
 	base()
-	clear()
 
+	// Ext retorna a extensão do nome do arquivo usada pelo path.
 	fmt.Println(path.Ext("/a/b/c/bar.css"))
+
+	// Join une qualquer número de elementos de path em um único path, separando-os com barras.
+	// Elementos vazios são ignorados.
 	fmt.Println(path.Join("a", "b", "c"))
 	fmt.Println(path.Join("a", "b/c"))
 	fmt.Println(path.Join("a/b", "c"))
